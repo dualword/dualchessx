@@ -1,2 +1,2 @@
-# dualchessx
+# DualChessX
 dualchessx
