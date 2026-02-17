@@ -1,0 +1,12 @@
+DualChessX - chess database. Fork of ChessX 0.8.
+
+How to build:
+	- prerequisites: C++20 (gcc 14.2), Qt 6.8
+	- qmake
+	- make
+
+Third Party Software:
+	- Qt license: LGPL
+
+License: GPL-3 (GPL-3.0-only)
+Source code: https://github.com/dualword/dualchessx

@@ -1,0 +1,27 @@
+/* DualChessX (2026) https://github.com/dualword/dualchessx License:GPL-3 (GPL-3.0-only)*/
+/****************************************************************************
+*   Copyright (C) 2010 by Michal Rudolf <mrudolf@kdewebdev.org>           *
+****************************************************************************/
+
+#include "plaintextedit.h"
+
+PlainTextEdit::PlainTextEdit(QWidget *parent) : QPlainTextEdit(parent)
+{
+}
+
+void PlainTextEdit::keyPressEvent(QKeyEvent* event)
+{
+    if (event->key() == Qt::Key_Return && event->modifiers() == Qt::NoModifier) {
+        event->ignore();
+        return;
+    }
+
+    if (event->key() == Qt::Key_Return && event->modifiers() == Qt::ControlModifier) {
+        event->ignore();
+        QKeyEvent* event2 = new QKeyEvent(QEvent::KeyPress, Qt::Key_Return, Qt::NoModifier);
+        QPlainTextEdit::keyPressEvent(event2);
+        delete event2;
+    }
+
+    QPlainTextEdit::keyPressEvent(event);
+}
